@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Book List</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+    <link href="http://cdn.jsdelivr.net/webjars/bootstrap/3.3.4/css/bootstrap.min.css"
+          th:href="@{/webjars/bootstrap/3.3.7-1/css/bootstrap.min.css}"
+          rel="stylesheet"
+          media="screen"/>
+
+    <script src="http://cdn.jsdelivr.net/webjars/jquery/2.1.4/jquery.min.js"
+            th:src="@{/webjars/jquery/3.1.1-1/jquery.min.js}"></script>
+
+</head>
+<body>
+    <div class="container">
+        <h1>Book List</h1>
+
+        <div class="row">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Page Count</th>
+                        <th>Rating</th>
+                        <th>Edit</th>
+                        <th>Delete</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Here, we see the for-each loop and property-access syntax for Thymeleaf, where bookList is in the Spring Model -->
+                    <tr th:each="book : ${bookList}">
+                        <td th:text="${book.id}"></td>
+                        <td th:text="${book.title}"></td>
+                        <td th:text="${book.pageCount}"></td>
+                        <td th:text="${book.rating}"></td>
+                        <td>
+                            <a th:href="${'/book/update/' + book.id}">Edit</a>
+                        </td>
+                        <td>
+                            <a th:href="${'/book/delete?id=' + book.id}">Delete</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="row">
+            <a class="btn btn-default" href="/book/new">Create New Book</a>
+        </div>
+
+    </div>
+</body>
+</html>

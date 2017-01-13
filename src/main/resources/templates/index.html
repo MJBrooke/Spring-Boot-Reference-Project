@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Index Page</title>
+
+    <!-- If run on a local web-page server, it will pull from the CDN. If run from the Spring JAR, it will pull from the local webjar -->
+    <script
+        src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1-1/jquery.min.js"
+        th:src="@{/webjars/jquery/3.1.1-1/jquery.min.js}">
+    </script>
+</head>
+<body>
+    <h1>My first page</h1>
+    <br/>
+    <div>
+        <p class="book-id">The ID is </p>
+        <p class="book-pages">The page count is </p>
+    </div>
+</body>
+
+<script>
+    <!-- Here we have a regular ajax function calling a RESTful service hosted on the JAR itself -->
+    $(document).ready(function() {
+        $.ajax({
+            url: "http://localhost:8080/rest/book"
+        }).then(function(data) {
+            $('.book-id').append(data.id);
+            $('.book-pages').append(data.pageCount);
+        });
+    });
+</script>
+</html>
