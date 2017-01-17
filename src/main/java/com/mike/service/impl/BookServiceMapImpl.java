@@ -2,6 +2,7 @@ package com.mike.service.impl;
 
 import com.mike.domain.Book;
 import com.mike.service.BookService;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -16,12 +17,13 @@ In this service, we are implementing CRUD operations.
  */
 
 @Service
-public class BookServiceImpl implements BookService {
+@Profile("MapServices")
+public class BookServiceMapImpl implements BookService {
 
     private Map<Integer, Book> books = new HashMap<>();
     private Integer currentSequenceIdValue = 0;
 
-    public BookServiceImpl() {
+    public BookServiceMapImpl() {
         loadInitialBookSet();
     }
 
