@@ -25,6 +25,15 @@ public class Book {
 
     private Double rating;
 
+    public Book(){}
+
+    public Book(Integer version, String title, Integer pageCount, Double rating) {
+        this.version = version;
+        this.title = title;
+        this.pageCount = pageCount;
+        this.rating = rating;
+    }
+
     public Integer getId() {
         return id;
     }

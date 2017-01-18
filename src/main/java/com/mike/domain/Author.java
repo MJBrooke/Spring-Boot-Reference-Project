@@ -23,9 +23,20 @@ public class Author {
     @Version
     private Integer version;
 
+    private String pseudonym;
     private String name;
     private String surname;
     private Integer age;
+
+    public Author() {}
+
+    public Author(Integer version, String pseudonym, String name, String surname, Integer age) {
+        this.version = version;
+        this.pseudonym = pseudonym;
+        this.name = name;
+        this.surname = surname;
+        this.age = age;
+    }
 
     public Integer getId() {
         return id;
@@ -41,6 +52,14 @@ public class Author {
 
     public void setVersion(Integer version) {
         this.version = version;
+    }
+
+    public String getPseudonym() {
+        return pseudonym;
+    }
+
+    public void setPseudonym(String pseudonym) {
+        this.pseudonym = pseudonym;
     }
 
     public String getName() {
