@@ -27,7 +27,7 @@
             <a href="author/list">Author List</a>
         </li>
         <li class="list-group-item">
-            <a href="rest/book/">RESTful Book Endpoint</a>
+            <a href="rest/book/list">RESTful Book Endpoint</a>
         </li>
     </ul>
     <h3>The below is an example in the code of using jQuery to hit a REST endpoint hosted by the Spring Boot
@@ -42,7 +42,7 @@
     <!-- Here we have a regular ajax function calling a RESTful service hosted on the JAR itself -->
     $(document).ready(function () {
         $.ajax({
-            url: "http://localhost:8080/rest/book"
+            url: "http://localhost:8080/rest/book/1"
         }).then(function (data) {
             $('.book-id').append(data.id);
             $('.book-pages').append(data.pageCount);
