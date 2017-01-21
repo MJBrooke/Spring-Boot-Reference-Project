@@ -28,7 +28,7 @@ public class BookController {
     }
 
     @GetMapping("/new")
-    public String getProductForm(Model model) {
+    public String getNewProductForm(Model model) {
 
         model.addAttribute("book", new Book());
 
@@ -36,7 +36,7 @@ public class BookController {
     }
 
     @GetMapping("/detail/{id}")
-    public String getViewBook(@PathVariable Integer id, Model model) {
+    public String getDetailedBookView(@PathVariable Integer id, Model model) {
 
         model.addAttribute("book", bookService.getBookById(id));
 
@@ -47,7 +47,7 @@ public class BookController {
     Example of a request that uses a path variable to retrieve the ID
      */
     @GetMapping("/update/{id}")
-    public String getUpdateForm(@PathVariable Integer id, Model model) {
+    public String getUpdateBookForm(@PathVariable Integer id, Model model) {
 
         model.addAttribute("book", bookService.getBookById(id));
 
@@ -59,7 +59,7 @@ public class BookController {
     Example of a POST that has had the form object bind to a parameter using @ModelAttribute
      */
     @PostMapping("/createOrUpdate")
-    public String postNewBook(@ModelAttribute Book book) {
+    public String postNewOrUpdatedBook(@ModelAttribute Book book) {
 
         bookService.createOrUpdateBook(book);
 
