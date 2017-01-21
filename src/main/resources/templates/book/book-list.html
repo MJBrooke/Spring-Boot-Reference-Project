@@ -26,6 +26,7 @@
                         <th>Name</th>
                         <th>Page Count</th>
                         <th>Rating</th>
+                        <th>View</th>
                         <th>Edit</th>
                         <th>Delete</th>
                     </tr>
@@ -37,6 +38,9 @@
                         <td th:text="${book.title}"></td>
                         <td th:text="${book.pageCount}"></td>
                         <td th:text="${book.rating}"></td>
+                        <td>
+                            <a th:href="${'/book/detail/' + book.id}">View</a>
+                        </td>
                         <td>
                             <a th:href="${'/book/update/' + book.id}">Edit</a>
                         </td>
