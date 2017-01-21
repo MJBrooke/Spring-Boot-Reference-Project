@@ -20,16 +20,29 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.view;
 
+/*
+An example of a Spring MVC unit test, using the Spring web testing framework.
+ */
 public class BookControllerTest {
 
     private MockMvc mockMvc;
 
+    /*
+    Here, we declare each of the services that are declared inside of the controller as mocks
+     */
     @Mock
     private BookService bookService;
 
+    /*
+    We then mark the controller to be injected using each of the previously declared mocks, instead of the usual autowiring.
+     */
     @InjectMocks
     private BookController bookController;
 
+    /*
+    This method is run before each method marked with the @Test annotation.
+    This ensure that the controller and the mocked services are all freshly created before each test to prevent leakage between unit tests.
+     */
     @Before
     public void before() {
         //Create the mocks for the services stipulated in this test class
