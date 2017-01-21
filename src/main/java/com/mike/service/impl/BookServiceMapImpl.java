@@ -67,8 +67,15 @@ public class BookServiceMapImpl implements BookService {
         book2.setTitle("Harry Potter and the Chamber of Secrets");
         book2.setRating(3.9);
 
+        Book book3 = new Book();
+        book3.setId(3);
+        book3.setPageCount(445);
+        book3.setTitle("Harry Potter and the Prisoner of Azkaban");
+        book3.setRating(4.1);
+
         addBookToMap(book);
         addBookToMap(book2);
+        addBookToMap(book3);
     }
 
     private void addBookToMap(Book book) {

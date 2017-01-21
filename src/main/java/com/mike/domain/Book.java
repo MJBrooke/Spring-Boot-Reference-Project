@@ -73,4 +73,16 @@ public class Book {
     public void setRating(Double rating) {
         this.rating = rating;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Book book = (Book) o;
+
+        if (title != null ? !title.equals(book.title) : book.title != null) return false;
+        if (pageCount != null ? !pageCount.equals(book.pageCount) : book.pageCount != null) return false;
+        return rating != null ? rating.equals(book.rating) : book.rating == null;
+    }
 }
