@@ -1,21 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
-    <title>Index Page</title>
-
-    <meta name="viewport" content="width=device-width, initial-scale=1"/>
-
-    <link href="http://cdn.jsdelivr.net/webjars/bootstrap/3.3.4/css/bootstrap.min.css"
-          th:href="@{/webjars/bootstrap/3.3.7-1/css/bootstrap.min.css}"
-          rel="stylesheet"
-          media="screen"/>
-
-    <!-- If run on a local web-page server, it will pull from the CDN. If run from the Spring JAR, it will pull from the local webjar -->
-    <script
-            src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1-1/jquery.min.js"
-            th:src="@{/webjars/jquery/3.1.1-1/jquery.min.js}">
-    </script>
-</head>
+<head th:include="common :: commonHeader (${'Index Page'})"></head>
 <body>
 <div class="container">
     <h1>My index page</h1>
@@ -29,8 +14,12 @@
         <li class="list-group-item">
             <a href="rest/book/list">RESTful Book Endpoint</a>
         </li>
+        <li class="list-group-item">
+            <a href="stateflow/bmi">Keep State Amongst Forms Using Session Scope Beans</a>
+        </li>
     </ul>
-    <h3>The below is an example in the code of using jQuery to hit a REST endpoint hosted by the Spring Boot
+    <h3>The below ID and Page Count serve as examples in the code of using jQuery to hit a REST endpoint hosted by the
+        Spring Boot
         container</h3>
     <p class="book-id">The ID is </p>
     <p class="book-pages">The page count is </p>
@@ -39,7 +28,7 @@
 </body>
 
 <script>
-    <!-- Here we have a regular ajax function calling a RESTful service hosted on the JAR itself -->
+    // Here we have a regular ajax function calling a RESTful service hosted on the JAR itself
     $(document).ready(function () {
         $.ajax({
             url: "http://localhost:8080/rest/book/1"
